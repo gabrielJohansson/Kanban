@@ -1,0 +1,107 @@
+﻿@using Kanban.Models
+@{
+    ViewBag.Title = "Index";
+    List<Tarefa> t1= ViewBag.Afazer;
+    List<Tarefa> t2 = ViewBag.Exec;
+    List<Tarefa> t3 = ViewBag.Con;
+}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<h2>A FAZER</h2>
+<table class="table">
+    <tr>
+        <th>
+            Nome da Tarefa
+        </th>
+        <th>
+            Dependência
+        </th>
+        <th></th>
+    </tr>
+@if (t1.Count > 0)
+{
+    for (int i = 0; i < t1.Count; i++)
+    {
+    <tr>
+        <td>
+            @t1[i].Nome
+        </td>
+       
+        <td>
+       @*     @t1[i].Dependencia.Nome*@
+        </td> 
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = t1[i].Id })           
+        </td>    
+    </tr>
+    }
+}
+
+</table>
+<h2>EM EXECUÇÃO</h2>
+<table class="table">
+    <tr>
+        <th>
+            Nome da Tarefa
+        </th>
+        <th>
+            Dependência
+        </th>
+        <th></th>
+    </tr>
+    @if (t2.Count > 0)
+    {
+    for (int i = 0; i < t1.Count; i++)
+    {
+        <tr>
+            <td>
+                @t2[i].Nome
+            </td>
+
+            <td>
+                @*@t2[i].Dependencia.Nome*@
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = t2[i].Id })
+            </td>
+        </tr>
+    }
+    }
+
+</table>
+
+<h2>CONCLUÍDO</h2>
+<table class="table">
+    <tr>
+        <th>
+            Nome da Tarefa
+        </th>
+        <th>
+            Dependência
+        </th>
+        <th></th>
+    </tr>
+@if (t2.Count > 0)
+{
+    for (int i = 0; i < t3.Count; i++)
+    {
+        <tr>
+            <td>
+                @t3[i].Nome
+            </td>
+
+            <td>
+                @*@t3[i].Dependencia.Nome*@
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = t3[i].Id })
+            </td>
+        </tr>
+    }
+
+}
+</table>
